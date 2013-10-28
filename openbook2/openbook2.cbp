@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="openbook" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="frotz\;openbook2\;" />
+		<Build>
+			<Target title="default">
+				<Option output="openbook2.exe" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-pg" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-pg -lgmon" />
+				</Linker>
+			</Target>
+			<Target title="release">
+				<Option output="openbook2.exe" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-DFREEGLUT_STATIC" />
+			<Add directory="include" />
+		</Compiler>
+		<Linker>
+			<Add library="freeglut" />
+			<Add library="glu32" />
+			<Add library="opengl32" />
+			<Add library="winmm" />
+			<Add library="gdi32" />
+			<Add library="libZThreads.a" />
+			<Add directory="libs" />
+		</Linker>
+		<Unit filename="..\frotz\buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\err.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\fastmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\files.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\frotz.h" />
+		<Unit filename="..\frotz\getopt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\getopt.h" />
+		<Unit filename="..\frotz\hotkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\math.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\process.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\quetzal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\random.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\redirect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\screen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\sound.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\stream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\text.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\frotz\variable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-interface.cpp" />
+		<Unit filename="frotz-interface.h" />
+		<Unit filename="openbook-constants.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-frotzer-thread.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-frotzer-thread.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-frotzer.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-frotzer.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-glutter-thread.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-glutter-thread.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-glutter.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-glutter.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-logger.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-logger.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-printlogic.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-printlogic.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-umbrella.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook-umbrella.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook2.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="openbook2.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="threadexample.cpp">
+			<Option virtualFolder="openbook2\" />
+			<Option target="default" />
+		</Unit>
+		<Unit filename="threadexample.h">
+			<Option virtualFolder="openbook2\" />
+			<Option target="default" />
+		</Unit>
+		<Unit filename="umbrella-book.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="umbrella-book.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="umbrella-line.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="umbrella-line.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="umbrella-page.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="umbrella-page.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="util-bmp.cpp">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Unit filename="util-bmp.h">
+			<Option virtualFolder="openbook2\" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

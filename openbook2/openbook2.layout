@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="default" />
+	<File name="..\frotz\buffer.c" open="0" top="0" tabpos="8">
+		<Cursor position="944" topLine="8" />
+	</File>
+	<File name="..\frotz\err.c" open="0" top="0" tabpos="9">
+		<Cursor position="4432" topLine="116" />
+	</File>
+	<File name="..\frotz\fastmem.c" open="0" top="0" tabpos="9">
+		<Cursor position="19186" topLine="600" />
+	</File>
+	<File name="..\frotz\frotz.h" open="0" top="0" tabpos="10">
+		<Cursor position="13293" topLine="494" />
+	</File>
+	<File name="..\frotz\hotkey.c" open="0" top="0" tabpos="11">
+		<Cursor position="3620" topLine="123" />
+	</File>
+	<File name="..\frotz\input.c" open="0" top="0" tabpos="12">
+		<Cursor position="5441" topLine="193" />
+	</File>
+	<File name="..\frotz\main.c" open="0" top="0" tabpos="5">
+		<Cursor position="3781" topLine="133" />
+	</File>
+	<File name="..\frotz\screen.c" open="0" top="0" tabpos="6">
+		<Cursor position="38955" topLine="1328" />
+	</File>
+	<File name="..\frotz\text.c" open="0" top="0" tabpos="0">
+		<Cursor position="9944" topLine="324" />
+	</File>
+	<File name="..\frotz\variable.c" open="0" top="0" tabpos="0">
+		<Cursor position="2231" topLine="72" />
+	</File>
+	<File name="frotz-interface.cpp" open="1" top="1" tabpos="8">
+		<Cursor position="756" topLine="6" />
+	</File>
+	<File name="frotz-interface.h" open="0" top="0" tabpos="11">
+		<Cursor position="261" topLine="0" />
+	</File>
+	<File name="openbook-constants.h" open="0" top="0" tabpos="7">
+		<Cursor position="166" topLine="2" />
+	</File>
+	<File name="openbook-frotzer-thread.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="296" topLine="9" />
+	</File>
+	<File name="openbook-frotzer-thread.h" open="1" top="0" tabpos="3">
+		<Cursor position="187" topLine="0" />
+	</File>
+	<File name="openbook-frotzer.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="440" topLine="17" />
+	</File>
+	<File name="openbook-frotzer.h" open="1" top="0" tabpos="5">
+		<Cursor position="103" topLine="0" />
+	</File>
+	<File name="openbook-glutter-thread.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="284" topLine="1" />
+	</File>
+	<File name="openbook-glutter.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="1982" topLine="59" />
+	</File>
+	<File name="openbook-glutter.h" open="0" top="0" tabpos="2">
+		<Cursor position="1006" topLine="0" />
+	</File>
+	<File name="openbook-logger.cpp" open="0" top="0" tabpos="10">
+		<Cursor position="383" topLine="0" />
+	</File>
+	<File name="openbook-logger.h" open="0" top="0" tabpos="11">
+		<Cursor position="289" topLine="0" />
+	</File>
+	<File name="openbook-printlogic.cpp" open="0" top="0" tabpos="11">
+		<Cursor position="722" topLine="0" />
+	</File>
+	<File name="openbook-printlogic.h" open="0" top="0" tabpos="4">
+		<Cursor position="70" topLine="0" />
+	</File>
+	<File name="openbook-umbrella.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="853" topLine="20" />
+	</File>
+	<File name="openbook-umbrella.h" open="0" top="0" tabpos="5">
+		<Cursor position="373" topLine="0" />
+	</File>
+	<File name="openbook2.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="618" topLine="58" />
+	</File>
+	<File name="openbook2.h" open="1" top="0" tabpos="4">
+		<Cursor position="912" topLine="19" />
+	</File>
+	<File name="threadexample.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="threadexample.h" open="0" top="0" tabpos="3">
+		<Cursor position="426" topLine="0" />
+	</File>
+	<File name="umbrella-book.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="392" topLine="0" />
+	</File>
+	<File name="umbrella-book.h" open="0" top="0" tabpos="2">
+		<Cursor position="1389" topLine="21" />
+	</File>
+	<File name="umbrella-line.cpp" open="0" top="0" tabpos="7">
+		<Cursor position="816" topLine="10" />
+	</File>
+	<File name="umbrella-line.h" open="0" top="0" tabpos="12">
+		<Cursor position="610" topLine="3" />
+	</File>
+	<File name="umbrella-page.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="549" topLine="0" />
+	</File>
+	<File name="umbrella-page.h" open="0" top="0" tabpos="10">
+		<Cursor position="736" topLine="12" />
+	</File>
+	<File name="util-bmp.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="129" topLine="0" />
+	</File>
+	<File name="util-bmp.h" open="0" top="0" tabpos="4">
+		<Cursor position="275" topLine="0" />
+	</File>
+</CodeBlocks_layout_file>

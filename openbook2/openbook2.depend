@@ -1,0 +1,237 @@
+# depslib dependency file v1.0
+1181552403 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook2.cpp
+	"openbook2.h"
+
+1213001406 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook2.h
+	<stdio.h>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<math.h>
+	<list>
+	<string>
+	<sstream>
+	<GL/freeglut.h>
+	"frotz.h"
+	"zthread/Thread.h"
+	"util-bmp.h"
+	"threadexample.h"
+	"openbook-constants.h"
+	"openbook-logger.h"
+	"openbook-umbrella.h"
+	"umbrella-line.h"
+	"umbrella-page.h"
+	"umbrella-book.h"
+	"frotz-interface.h"
+	"openbook-glutter.h"
+	"openbook-frotzer.h"
+	"openbook-printlogic.h"
+	"openbook-glutter-thread.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\frotz.h
+	<signal.h>
+	<stdio.h>
+
+1200265749 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\thread.h
+	"zthread/Cancelable.h"
+	"zthread/Priority.h"
+	"zthread/NonCopyable.h"
+	"zthread/Task.h"
+	"zthread/Waitable.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\cancelable.h
+	"zthread/Exceptions.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\exceptions.h
+	"zthread/Config.h"
+	<string>
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\config.h
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\priority.h
+
+1200265749 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\noncopyable.h
+
+1200265749 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\task.h
+	"zthread/CountedPtr.h"
+	"zthread/Runnable.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\countedptr.h
+	<algorithm>
+	<cassert>
+	"zthread/AtomicCount.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\atomiccount.h
+	<cstdlib>
+	"zthread/Config.h"
+	"zthread/NonCopyable.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\runnable.h
+	"zthread/Config.h"
+
+1200265750 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\include\zthread\waitable.h
+	"zthread/Exceptions.h"
+
+1170670149 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\threadexample.cpp
+	"openbook2.h"
+
+1170670322 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\threadexample.h
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\buffer.c
+	"frotz.h"
+
+1200265718 c:\documents and settings\lewis\my documents\dev\openbook2\frotz\frotz.h
+	<signal.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\err.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\fastmem.c
+	<stdio.h>
+	<string.h>
+	"frotz.h"
+	<alloc.h>
+	<stdlib.h>
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\files.c
+	<stdio.h>
+	<string.h>
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\getopt.c
+	<stdio.h>
+	<string.h>
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\hotkey.c
+	"frotz.h"
+
+1200265717 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\input.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\main.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\math.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\object.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\process.c
+	"frotz.h"
+	"djfrotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\quetzal.c
+	<stdio.h>
+	<string.h>
+	"frotz.h"
+	<alloc.h>
+	<stdlib.h>
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\random.c
+	"frotz.h"
+
+1200265717 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\redirect.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\screen.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\sound.c
+	"frotz.h"
+	"djfrotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\stream.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\table.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\text.c
+	"frotz.h"
+
+1200265718 source:c:\documents and settings\lewis\my documents\dev\openbook2\frotz\variable.c
+	"frotz.h"
+
+1170440044 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\stubs.c
+	"frotz.h"
+	<strings.h>
+
+1170442354 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\interface-frotz.cpp
+	"openbook2.h"
+
+1170440182 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\interface-frotz.h
+
+1175368515 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-logger.h
+
+1178233073 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-logger.cpp
+	"openbook2.h"
+
+1170665635 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\constants.h
+
+1209146418 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\frotz-interface.cpp
+	"openbook2.h"
+	<sys/stat.h>
+
+1178303294 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-constants.h
+
+1171447668 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\frotz-interface.h
+
+1171925727 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\frotz-stubs.c
+	"frotz.h"
+	<strings.h>
+
+1178231065 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-glutter.h
+
+1178303328 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-glutter.cpp
+	"openbook2.h"
+
+1213001395 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-frotzer.h
+	"openbook-frotzer-thread.h"
+
+1213002001 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-frotzer.cpp
+	"openbook2.h"
+
+1175688818 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-umbrella.h
+
+1178457195 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\umbrella-book.h
+
+1175688831 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-umbrella.cpp
+	"openbook2.h"
+
+1209128419 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\umbrella-book.cpp
+	"openbook2.h"
+
+1173993863 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-glutter-thread.h
+
+1174005355 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-glutter-thread.cpp
+	"openbook2.h"
+
+1213001301 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-frotzer-thread.h
+
+1213001295 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-frotzer-thread.cpp
+	"openbook2.h"
+
+1178304842 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\umbrella-page.h
+
+1178458471 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\umbrella-page.cpp
+	"openbook2.h"
+
+1178304979 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\umbrella-line.h
+
+1178306796 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\umbrella-line.cpp
+	"openbook2.h"
+
+1175155866 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-printlogic.h
+
+1175196977 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\openbook-printlogic.cpp
+	"openbook2.h"
+
+1178184253 c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\util-bmp.h
+
+1178184245 source:c:\documents and settings\lewis\my documents\dev\openbook2\openbook2\util-bmp.cpp
+	"openbook2.h"
+

@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>[32] How to mix C and C++, C++ FAQ Lite</title>
+
+
+
+<meta name="FILENAME" content="mixing-c-and-cpp.html">
+<meta name="ABSTRACT" content="[32] How to mix C and C++, C++ FAQ Lite">
+<meta name="OWNER" content="cline@parashift.com">
+<meta name="AUTHOR" content="Marshall Cline, cline@parashift.com">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rev="made" href="mailto:cline@parashift.com">
+<style type="text/css">
+  <!--
+  body       { font-family: arial; color: black; background: white }
+  .CodeBlock { color: black; background-color: #dfdfdf; margin-left: 30px; margin-right: 30px; padding: 5pt }
+  .CodeBlock small tt { font-size: small }
+  .FaqTitle  { color: black; background-color: gold }
+  .Updated   { color: black; cursor: default; font-size: x-small; font-variant: small-caps; font-family: cursive;
+               background-color: #ffff00; border: solid #e0e000 1px; }
+  .New       { color: black; cursor: default; font-size: x-small; font-variant: small-caps; font-family: cursive;
+               background-color: #00ff00; border: solid #00d000 1px; }
+  ul         { margin-bottom: 1px; margin-top: 1px }
+  ol         { margin-bottom: 1px; margin-top: 1px }
+  li         { margin-bottom: 4px; margin-top: 4px }
+  -->
+</style></head><body>
+<h1><a name="top"></a>[32] How to mix C and C++<br>
+<small><small>(Part of <a href="http://www.parashift.com/c++-faq-lite/index.html" title="C++ FAQ Lite"><em>C++ FAQ Lite</em></a>, <a href="http://www.parashift.com/c++-faq-lite/copy-permissions.html#faq-1.2" title="[1.2] Copyright Notice">Copyright&nbsp;© 1991-2006</a>, <a href="http://www.parashift.com/" title="www.parashift.com/" target="_blank">Marshall Cline</a>, <a href="mailto:cline@parashift.com" title="cline@parashift.com"><tt>cline@parashift.com</tt></a>)</small></small></h1>
+<hr>
+<h3>FAQs in section [32]:</h3>
+<ul>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.1" title="[32.1] What do I need to know when mixing C and C++ code?">[32.1] What do I need to know when mixing C and C++ code?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.2" title="[32.2] How can I include a standard C header file in my C++ code?">[32.2] How can I include a standard C header file in my C++ code?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.3" title="[32.3] How can I include a non-system C header file in my C++ code?">[32.3] How can I include a non-system C header file in my C++ code?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.4" title="[32.4] How can I modify my own C header files so it's easier to #include them in C++ code?">[32.4] How can I modify my own C header files so it's easier to <nobr><tt>#include</tt></nobr> them in C++ code?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.5" title="[32.5] How can I call a non-system C function f(int,char,float) from my C++ code?">[32.5] How can I call a non-system C function <nobr><tt>f(int,char,float)</tt></nobr> from my C++ code?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.6" title="[32.6] How can I create a C++ function f(int,char,float) that is callable by my C code?">[32.6] How can I create a C++ function <nobr><tt>f(int,char,float)</tt></nobr> that is callable by my C code?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.7" title="[32.7] Why is the linker giving errors for C/C++ functions being called from C++/C functions?">[32.7] Why is the linker giving errors for C/C++ functions being called from C++/C functions?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.8" title="[32.8] How can I pass an object of a C++ class to/from a C function?">[32.8] How can I pass an object of a C++ <tt>class</tt> to/from a C function?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.9" title="[32.9] Can my C function directly access data in an object of a C++ class?">[32.9] Can my C function directly access data in an object of a C++ <tt>class</tt>?</a></li>
+<li><a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.10" title="[32.10] Why do I feel like I'm &quot;further from the machine&quot; in C++ as opposed to C?">[32.10] Why do I feel like I'm "further from the machine" in C++ as opposed to C?</a></li>
+</ul>
+<p></p><hr>
+<p><a name="faq-32.1"></a>
+</p><div class="FaqTitle"><h3>[32.1] What do I need to know when mixing C and C++ code?</h3></div>
+<p>Here are some high points (though some compiler-vendors might not require all
+these; check with your compiler-vendor's documentation):
+</p><ul>
+<li>You must use your C++ compiler when compiling <nobr><tt>main()</tt></nobr>
+(e.g., for static initialization)</li>
+<li>Your C++ compiler should direct the linking process
+(e.g., so it can get its special libraries)</li>
+<li>Your C and C++ compilers probably need to come from same vendor and
+have compatible versions (e.g., so they have the same calling
+conventions)</li>
+</ul>
+<p>In addition, you'll need to read the rest of this section to find out how to
+make your C functions callable by C++ and/or your C++ functions callable by C.
+</p><p>BTW there is another way to handle this whole thing: compile all your code
+(even your C-style code) using a C++ compiler.  That pretty much eliminates
+the need to mix C and C++, plus it will cause you to be more careful (and
+possibly &#8212;hopefully!&#8212; discover some bugs) in your C-style code.  The
+down-side is that you'll need to update your C-style code in certain ways,
+basically because <a href="http://www.parashift.com/c++-faq-lite/big-picture.html#faq-6.11" title="[6.11] Is C++ backward compatible with ANSI/ISO C?">the C++ compiler is more
+careful/picky than your C compiler<!--rawtext:[6.11]:rawtext--></a>.  The point is that the effort
+required to clean up your C-style code may be less than the effort required to
+mix C and C++, and as a bonus you get cleaned up C-style code.  Obviously you
+don't have much of a choice if you're not able to alter your C-style code
+(e.g., if it's from a third-party).
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.2"></a>
+</p><div class="FaqTitle"><h3>[32.2] How can I include a standard C header file in my C++ code?</h3></div>
+<p>To #include a standard header file (such as <nobr><tt>&lt;cstdio&gt;</tt></nobr>), you don't have to do
+anything unusual.  E.g.,
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</small></em><tt><br>
+&nbsp;<br>
+&nbsp;#include&nbsp;&lt;cstdio&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em><small>//&nbsp;Nothing&nbsp;unusual&nbsp;in&nbsp;<nobr><tt>#include</tt></nobr>&nbsp;line</small></em><tt><br>
+&nbsp;<br>
+&nbsp;int&nbsp;main()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;std::printf("Hello&nbsp;world\n");&nbsp;&nbsp;</tt><em><small>//&nbsp;Nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call&nbsp;either</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p>If you think the <nobr><tt>std::</tt></nobr> part of the <nobr><tt>std::printf()</tt></nobr> call is
+unusual, then the best thing to do is "get over it." In other words, it's the
+standard way to use names in the standard library, so you might as well start
+getting used to it now.
+</p><p>However if you are compiling C code using your C++ compiler, you don't want to
+have to tweak all these calls from <nobr><tt>printf()</tt></nobr> to <nobr><tt>std::printf()</tt></nobr>.
+Fortunately in this case the C code will use the old-style header
+<nobr><tt>&lt;stdio.h&gt;</tt></nobr> rather than the new-style header <nobr><tt>&lt;cstdio&gt;</tt></nobr>, and the magic of
+namespaces will take care of everything else:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>/*&nbsp;This&nbsp;is&nbsp;C&nbsp;code&nbsp;that&nbsp;I'm&nbsp;compiling&nbsp;using&nbsp;a&nbsp;C++&nbsp;compiler&nbsp;*/</small></em><tt><br>
+&nbsp;<br>
+&nbsp;#include&nbsp;&lt;stdio.h&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em><small>/*&nbsp;Nothing&nbsp;unusual&nbsp;in&nbsp;<nobr><tt>#include</tt></nobr>&nbsp;line&nbsp;*/</small></em><tt><br>
+&nbsp;<br>
+&nbsp;int&nbsp;main()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;printf("Hello&nbsp;world\n");&nbsp;&nbsp;</tt><em><small>/*&nbsp;Nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call&nbsp;either&nbsp;*/</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p>Final comment: if you have C headers that are <em>not</em> part of the standard
+library, we have somewhat different guidelines for you.  There are two cases:
+either you <a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.3" title="[32.3] How can I include a non-system C header file in my C++ code?"><em>can't</em> change the
+header<!--rawtext:[32.3]:rawtext--></a>, or you <a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.4" title="[32.4] How can I modify my own C header files so it's easier to #include them in C++ code?"><em>can</em> change the
+header<!--rawtext:[32.4]:rawtext--></a>.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.3"></a>
+</p><div class="FaqTitle"><h3>[32.3] How can I include a non-system C header file in my C++ code?</h3></div>
+<p>If you are including a C header file that isn't provided by the system, you may
+need to wrap the <nobr><tt>#include</tt></nobr> line in an <nobr><tt>extern "C" { /*</tt>...<tt>*/ }</tt></nobr>
+construct.  This tells the C++ compiler that the functions declared in the
+header file are C functions.
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</small></em><tt><br>
+&nbsp;<br>
+&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>//&nbsp;Get&nbsp;declaration&nbsp;for&nbsp;<nobr><tt>f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x)</tt></nobr></small></em><tt><br>
+&nbsp;&nbsp;&nbsp;#include&nbsp;"my-C-code.h"<br>
+&nbsp;}<br>
+&nbsp;<br>
+&nbsp;int&nbsp;main()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;f(7,&nbsp;'x',&nbsp;3.14);&nbsp;&nbsp;&nbsp;</tt><em><small>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p>Note: Somewhat different guidelines apply for <a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.2" title="[32.2] How can I include a standard C header file in my C++ code?">C headers provided by the
+system (such as <nobr><tt>&lt;cstdio&gt;</tt></nobr>)<!--rawtext:[32.2]:rawtext--></a> and for <a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.4" title="[32.4] How can I modify my own C header files so it's easier to #include them in C++ code?">C
+headers that you can change<!--rawtext:[32.4]:rawtext--></a>.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.4"></a>
+</p><div class="FaqTitle"><h3>[32.4] How can I modify my own C header files so it's easier to <nobr><tt>#include</tt></nobr> them in C++ code?</h3></div>
+<p>If you are including a C header file that isn't provided by the system, and if
+you are able to change the C header, you should strongly consider adding the
+<nobr><tt>extern "C" {</tt>...<tt>}</tt></nobr> logic inside the header to make it easier for C++
+users to <nobr><tt>#include</tt></nobr> it into their C++ code.  Since a C compiler won't
+understand the <nobr><tt>extern "C"</tt></nobr> construct, you must wrap the <nobr><tt>extern "C"
+{</tt></nobr> and <nobr><tt>}</tt></nobr> lines in an <nobr><tt>#ifdef</tt></nobr> so they won't be seen by normal
+C compilers.
+</p><p>Step #1: Put the following lines at the very top of your C header file (note:
+the symbol <tt>__cplusplus</tt> is <nobr><tt>#define</tt></nobr>d if/only-if the compiler is a C++
+compiler):
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;#endif
+</tt>
+</div>
+<p>Step #2: Put the following lines at the very bottom of your C header file:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;}<br>
+&nbsp;#endif
+</tt>
+</div>
+<p>Now you can <nobr><tt>#include</tt></nobr> your C header without any <nobr><tt>extern "C"</tt></nobr> nonsense in
+your C++ code:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</small></em><tt><br>
+&nbsp;<br>
+&nbsp;</tt><em><small>//&nbsp;Get&nbsp;declaration&nbsp;for&nbsp;<nobr><tt>f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x)</tt></nobr></small></em><tt><br>
+&nbsp;#include&nbsp;"my-C-code.h"&nbsp;&nbsp;&nbsp;</tt><em><small>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;#include&nbsp;line</small></em><tt><br>
+&nbsp;<br>
+&nbsp;int&nbsp;main()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;f(7,&nbsp;'x',&nbsp;3.14);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em><small>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p>Note: Somewhat different guidelines apply for <a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.2" title="[32.2] How can I include a standard C header file in my C++ code?">C
+headers provided by the system (such as <nobr><tt>&lt;cstdio&gt;</tt></nobr>)<!--rawtext:[32.2]:rawtext--></a> and for
+<a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.3" title="[32.3] How can I include a non-system C header file in my C++ code?">C headers that you can't change<!--rawtext:[32.3]:rawtext--></a>.
+</p><p>Note: <nobr><tt>#define</tt></nobr> macros are <a href="http://www.parashift.com/c++-faq-lite/big-picture.html#faq-6.15" title="[6.15] What does the FAQ mean by &quot;such and such is evil&quot;?">evil<!--rawtext:[6.15]:rawtext--></a> in 4 different
+ways: <a href="http://www.parashift.com/c++-faq-lite/inline-functions.html#faq-9.5" title="[9.5] Why should I use inline functions instead of plain old #define macros?">evil#1<!--rawtext:[9.5]:rawtext--></a>, <a href="http://www.parashift.com/c++-faq-lite/misc-technical-issues.html#faq-39.4" title="[39.4] What should be done with macros that contain if?">evil#2<!--rawtext:[39.4]:rawtext--></a>,
+<a href="http://www.parashift.com/c++-faq-lite/misc-technical-issues.html#faq-39.5" title="[39.5] What should be done with macros that have multiple lines?">evil#3<!--rawtext:[39.5]:rawtext--></a>, and
+<a href="http://www.parashift.com/c++-faq-lite/misc-technical-issues.html#faq-39.6" title="[39.6] What should be done with macros that need to paste two tokens together?">evil#4<!--rawtext:[39.6]:rawtext--></a>.  But they're still
+<a href="http://www.parashift.com/c++-faq-lite/big-picture.html#faq-6.16" title="[6.16] Will I sometimes use any so-called &quot;evil&quot; constructs?">useful sometimes<!--rawtext:[6.16]:rawtext--></a>.  Just wash your hands
+after using them.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.5"></a>
+</p><div class="FaqTitle"><h3>[32.5] How can I call a non-system C function <nobr><tt>f(int,char,float)</tt></nobr> from my C++ code?</h3></div>
+<p>If you have an individual C function that you want to call, and for some reason
+you don't have or don't want to <nobr><tt>#include</tt></nobr> a C header file in which that
+function is declared, you can declare the individual C function in your C++ code
+using the <nobr><tt>extern "C"</tt></nobr> syntax.  Naturally you need to use the full
+function prototype:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;extern&nbsp;"C"&nbsp;void&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x);
+</tt>
+</div>
+<p>A block of several C functions can be grouped via braces:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;void&nbsp;&nbsp;&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x);<br>
+&nbsp;&nbsp;&nbsp;int&nbsp;&nbsp;&nbsp;&nbsp;g(char*&nbsp;s,&nbsp;const&nbsp;char*&nbsp;s2);<br>
+&nbsp;&nbsp;&nbsp;double&nbsp;sqrtOfSumOfSquares(double&nbsp;a,&nbsp;double&nbsp;b);<br>
+&nbsp;}
+</tt>
+</div>
+<p>After this you simply call the function just as if it were a C++ function:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;int&nbsp;main()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;f(7,&nbsp;'x',&nbsp;3.14);&nbsp;&nbsp;&nbsp;</tt><em><small>//&nbsp;Note:&nbsp;nothing&nbsp;unusual&nbsp;in&nbsp;the&nbsp;call</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.6"></a>
+</p><div class="FaqTitle"><h3>[32.6] How can I create a C++ function <nobr><tt>f(int,char,float)</tt></nobr> that is callable by my C code?</h3></div>
+<p>The C++ compiler must know that <nobr><tt>f(int,char,float)</tt></nobr> is to be called by a C
+compiler using the <a href="http://www.parashift.com/c++-faq-lite/mixing-c-and-cpp.html#faq-32.3" title="[32.3] How can I include a non-system C header file in my C++ code?"><nobr><tt>extern "C"</tt></nobr>
+construct<!--rawtext:[32.3]:rawtext--></a>:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</small></em><tt><br>
+&nbsp;<br>
+&nbsp;</tt><em><small>//&nbsp;Declare&nbsp;<nobr><tt>f(int,char,float)</tt></nobr>&nbsp;using&nbsp;<nobr><tt>extern&nbsp;"C"</tt></nobr>:</small></em><tt><br>
+&nbsp;extern&nbsp;"C"&nbsp;void&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x);<br>
+&nbsp;<br>
+&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;<br>
+&nbsp;</tt><em><small>//&nbsp;Define&nbsp;<nobr><tt>f(int,char,float)</tt></nobr>&nbsp;in&nbsp;some&nbsp;C++&nbsp;module:</small></em><tt><br>
+&nbsp;void&nbsp;f(int&nbsp;i,&nbsp;char&nbsp;c,&nbsp;float&nbsp;x)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p>The <nobr><tt>extern "C"</tt></nobr> line tells the compiler that the external information
+sent to the linker should use C calling conventions and name mangling (e.g.,
+preceded by a single underscore).  Since name overloading isn't supported by C,
+you can't make several overloaded functions simultaneously callable by a C
+program.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.7"></a>
+</p><div class="FaqTitle"><h3>[32.7] Why is the linker giving errors for C/C++ functions being called from C++/C functions?</h3></div>
+<p>If you didn't get your <nobr><tt>extern "C"</tt></nobr> right, you'll sometimes get linker
+errors rather than compiler errors.  This is due to the fact that C++ compilers
+usually "mangle" function names (e.g., to support function overloading)
+differently than C compilers.
+</p><p>See the previous two FAQs on how to use <nobr><tt>extern "C"</tt></nobr>.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.8"></a>
+</p><div class="FaqTitle"><h3>[32.8] How can I pass an object of a C++ <tt>class</tt> to/from a C function?</h3></div>
+<p>Here's an example (for info on <nobr><tt>extern "C"</tt></nobr>, see the previous two FAQs).
+</p><p><tt>Fred.h</tt>:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>/*&nbsp;This&nbsp;header&nbsp;can&nbsp;be&nbsp;read&nbsp;by&nbsp;both&nbsp;C&nbsp;and&nbsp;C++&nbsp;compilers&nbsp;*/</small></em><tt><br>
+&nbsp;#ifndef&nbsp;FRED_H<br>
+&nbsp;#define&nbsp;FRED_H<br>
+&nbsp;<br>
+&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;&nbsp;&nbsp;class&nbsp;Fred&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;public:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void&nbsp;wilma(int);<br>
+&nbsp;&nbsp;&nbsp;private:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;a_;<br>
+&nbsp;&nbsp;&nbsp;};<br>
+&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;typedef<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct&nbsp;Fred<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fred;<br>
+&nbsp;#endif<br>
+&nbsp;<br>
+&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;extern&nbsp;"C"&nbsp;{<br>
+&nbsp;#endif<br>
+&nbsp;<br>
+&nbsp;#if&nbsp;defined(__STDC__)&nbsp;||&nbsp;defined(__cplusplus)<br>
+&nbsp;&nbsp;&nbsp;extern&nbsp;void&nbsp;c_function(Fred*);&nbsp;&nbsp;&nbsp;</tt><em><small>/*&nbsp;ANSI&nbsp;C&nbsp;prototypes&nbsp;*/</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;extern&nbsp;Fred*&nbsp;cplusplus_callback_function(Fred*);<br>
+&nbsp;#else<br>
+&nbsp;&nbsp;&nbsp;extern&nbsp;void&nbsp;c_function();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><em><small>/*&nbsp;K&amp;R&nbsp;style&nbsp;*/</small></em><tt><br>
+&nbsp;&nbsp;&nbsp;extern&nbsp;Fred*&nbsp;cplusplus_callback_function();<br>
+&nbsp;#endif<br>
+&nbsp;<br>
+&nbsp;#ifdef&nbsp;__cplusplus<br>
+&nbsp;}<br>
+&nbsp;#endif<br>
+&nbsp;<br>
+&nbsp;#endif&nbsp;</tt><em><small>/*FRED_H*/</small></em><tt>
+</tt>
+</div>
+<p><tt>Fred.cpp</tt>:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</small></em><tt><br>
+&nbsp;<br>
+&nbsp;#include&nbsp;"Fred.h"<br>
+&nbsp;<br>
+&nbsp;Fred::Fred()&nbsp;:&nbsp;a_(0)&nbsp;{&nbsp;}<br>
+&nbsp;<br>
+&nbsp;void&nbsp;Fred::wilma(int&nbsp;a)&nbsp;{&nbsp;}<br>
+&nbsp;<br>
+&nbsp;Fred*&nbsp;cplusplus_callback_function(Fred*&nbsp;fred)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;fred-&gt;wilma(123);<br>
+&nbsp;&nbsp;&nbsp;return&nbsp;fred;<br>
+&nbsp;}
+</tt>
+</div>
+<p><tt>main.cpp</tt>:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>//&nbsp;This&nbsp;is&nbsp;C++&nbsp;code</small></em><tt><br>
+&nbsp;<br>
+&nbsp;#include&nbsp;"Fred.h"<br>
+&nbsp;<br>
+&nbsp;int&nbsp;main()<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;Fred&nbsp;fred;<br>
+&nbsp;&nbsp;&nbsp;c_function(&amp;fred);<br>
+&nbsp;&nbsp;&nbsp;</tt><em><small>...</small></em><tt><br>
+&nbsp;}
+</tt>
+</div>
+<p><nobr><tt>c-function.c</tt></nobr>:
+</p><p></p><div class="CodeBlock">
+<tt>
+&nbsp;</tt><em><small>/*&nbsp;This&nbsp;is&nbsp;C&nbsp;code&nbsp;*/</small></em><tt><br>
+&nbsp;<br>
+&nbsp;#include&nbsp;"Fred.h"<br>
+&nbsp;<br>
+&nbsp;void&nbsp;c_function(Fred*&nbsp;fred)<br>
+&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;cplusplus_callback_function(fred);<br>
+&nbsp;}
+</tt>
+</div>
+<p>Unlike your C++ code, your C code will not be able to tell that two pointers
+point at the same object unless the pointers are <em>exactly</em> the same
+type.  For example, in C++ it is easy to check if a <nobr><tt>Derived*</tt></nobr> called
+<tt>dp</tt> points to the same object as is pointed to by a <nobr><tt>Base*</tt></nobr>
+called <tt>bp</tt>: just say <nobr><tt>if (dp == bp) </tt>...<tt></tt></nobr>.  The C++ compiler
+automatically converts both pointers to the same type, in this case to
+<nobr><tt>Base*</tt></nobr>, then compares them.  Depending on the C++ compiler's
+implementation details, this conversion sometimes changes the bits of a
+pointer's value.  However your C compiler will not know how to do that pointer
+conversion, so the conversion from <nobr><tt>Derived*</tt></nobr> to <nobr><tt>Base*</tt></nobr>, for
+example, must take place in code compiled with a C++ compiler, not in code
+compiled with a C compiler.
+</p><p><em>NOTE:</em> you must be especially careful when converting both to
+<nobr><tt>void*</tt></nobr> since that conversion will not allow either the C or C++
+compiler to do the proper pointer adjustments!  For example (continuing from
+the previous paragraph), if you assigned <tt>dp</tt> and <tt>bp</tt> into two
+<nobr><tt>void*</tt></nobr> pointers, say <tt>dpv</tt> and <tt>bpv</tt>, it might be the case
+that <nobr><tt>dpv != bpv</tt></nobr> even if <nobr><tt>dp == bp</tt></nobr>.  You have been warned.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.9"></a>
+</p><div class="FaqTitle"><h3>[32.9] Can my C function directly access data in an object of a C++ <tt>class</tt>?</h3></div>
+<p>Sometimes.
+</p><p>(For basic info on passing C++ objects to/from C functions, read the previous
+FAQ).
+</p><p>You can safely access a C++ object's data from a C function if the C++ class:
+</p><ul>
+<li>Has no <a href="http://www.parashift.com/c++-faq-lite/virtual-functions.html" title="[20] Inheritance -- virtual functions"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions (including
+inherited <tt>virtual</tt> functions)</li>
+<li>Has all its data in the same access-level section
+(private/protected/public)</li>
+<li>Has no fully-contained subobjects with
+<a href="http://www.parashift.com/c++-faq-lite/virtual-functions.html" title="[20] Inheritance -- virtual functions"><tt>virtual</tt><!--rawtext:[20]:rawtext--></a> functions</li>
+</ul>
+<p>If the C++ class has any base classes at all (or if any fully contained
+subobjects have base classes), accessing the data will <em>technically</em> be
+non-portable, since <tt>class</tt> layout under inheritance isn't imposed by the
+language.  However in practice, all C++ compilers do it the same way: the base
+class object appears first (in left-to-right order in the event of multiple
+inheritance), and member objects follow.
+</p><p>Furthermore, if the class (or any base class) contains any <tt>virtual</tt>
+functions, almost all C++ compliers put a <nobr><tt>void*</tt></nobr> into the object either at the
+location of the first <tt>virtual</tt> function or at the very beginning of the
+object.  Again, this is not required by the language, but it is the way
+"everyone" does it.
+</p><p>If the class has any <tt>virtual</tt> base classes, it is even more complicated
+and less portable.  One common implementation technique is for objects to
+contain an object of the <tt>virtual</tt> base class (<tt>V</tt>) last (regardless of
+where <tt>V</tt> shows up as a <tt>virtual</tt> base class in the inheritance
+hierarchy).  The rest of the object's parts appear in the normal order.  Every
+derived class that has <tt>V</tt> as a <tt>virtual</tt> base class actually has a
+<em>pointer</em> to the <tt>V</tt> part of the final object.
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="faq-32.10"></a>
+</p><div class="FaqTitle"><h3>[32.10] Why do I feel like I'm "further from the machine" in C++ as opposed to C?</h3></div>
+<p>Because you are.
+</p><p>As an OO programming language, C++ allows you to model the problem domain
+itself, which allows you to program in the language of the problem domain
+rather than in the language of the solution domain.
+</p><p>One of C's great strengths is the fact that it has "no hidden mechanism": what
+you see is what you get.  You can read a C program and "see" every clock cycle.
+This is not the case in C++; old line C programmers (such as many of us once
+were) are often ambivalent (can you say, "hostile"?) about this feature.
+However after they've made the transition to OO thinking, they often realize
+that although C++ hides some mechanism from the programmer, it also provides a
+level of abstraction and economy of expression which lowers maintenance costs
+without destroying run-time performance.
+</p><p>Naturally you can write bad code in any language; C++ doesn't guarantee any
+particular level of quality, reusability, abstraction, or any other measure of
+"goodness."
+</p><p><em>C++ doesn't try to make it impossible for bad programmers to write bad
+programs; it enables reasonable developers to create superior software.</em>
+</p><p><small>[&nbsp;<a href="#top" title="Top of section [32] How to mix C and C++">Top</a> |&nbsp;<a href="#bottom" title="Bottom of section [32] How to mix C and C++">Bottom</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/value-vs-ref-semantics.html" title="[31] Reference and value semantics">Previous&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/pointers-to-members.html" title="[33] Pointers to member functions">Next&nbsp;section</a> |&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#search-the-faq" title="Look up FAQs several ways">Search&nbsp;the&nbsp;FAQ</a> ]</small>
+</p><hr>
+<p><a name="bottom"></a>
+<a href="mailto:cline@parashift.com" title="cline@parashift.com"><img src="mixing-c-and-cpp_files/mbox.gif" alt="E-Mail" height="26" width="89">&nbsp;E-mail the author</a><br>
+[&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html" title="C++ FAQ Lite"><em>C++ FAQ Lite</em></a>
+|&nbsp;<a href="http://www.parashift.com/c++-faq-lite/index.html#table-of-contents" title="Table of contents">Table&nbsp;of&nbsp;contents</a>
+|&nbsp;<a href="http://www.parashift.com/c++-faq-lite/subject-index.html" title="Subject index; 5175 links to 3298 topics">Subject&nbsp;index</a>
+|&nbsp;<a href="http://www.parashift.com/c++-faq-lite/copy-permissions.html#faq-1.1" title="[1.1] Author">About&nbsp;the&nbsp;author</a>
+|&nbsp;<a href="http://www.parashift.com/c++-faq-lite/copy-permissions.html#faq-1.2" title="[1.2] Copyright Notice">©</a>
+|&nbsp;<a href="http://www.parashift.com/c++-faq-lite/on-line-availability.html#faq-2.2" title="[2.2] What happened to the one-click-download option?">Download&nbsp;your&nbsp;own&nbsp;copy</a>&nbsp;]<br>
+<small>Revised Sep 25, 2006</small>
+
+</p></body></html>

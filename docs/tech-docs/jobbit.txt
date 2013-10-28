@@ -1,0 +1,2 @@
+1. undefined reference to anything I create in Logger!
+2. complete logger - log to files.

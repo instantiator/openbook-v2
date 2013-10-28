@@ -1,0 +1,15 @@
+openbook2: rebuild
+
+C++
+
+logging essential - with various levels
+take a fresh (recent?) edition of frotz
+disconnect initialisation from z_code interpretation
+break z_code interpretation to be reentrant
+
+first test:
+initialise z machine,
+process (loop),
+shutdown z machine
+
+rebuild code from openbook1 as C++ glut code

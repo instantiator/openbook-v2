@@ -1,0 +1,18 @@
+void threadTest()
+{
+    using namespace std;
+    using namespace ZThread;
+
+    std::cout << "threading test";
+
+    try
+    {
+        Thread t1(new ThreadExample("Thread-1", 500));
+        Thread t2(new ThreadExample("Thread-2", 500));
+    }
+    catch (const Synchronization_Exception& e)
+    {
+        std::cerr << e.what() << "\n";
+    }
+}
+

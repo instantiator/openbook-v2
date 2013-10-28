@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="default" />
+	<File name="fastmem.c" open="0" top="0" tabpos="0">
+		<Cursor position="18662" topLine="587" />
+	</File>
+	<File name="frotz.h" open="1" top="0" tabpos="4">
+		<Cursor position="18347" topLine="625" />
+	</File>
+	<File name="main.c" open="1" top="0" tabpos="3">
+		<Cursor position="3895" topLine="134" />
+	</File>
+	<File name="process.c" open="0" top="0" tabpos="0">
+		<Cursor position="3677" topLine="145" />
+	</File>
+	<File name="screen.c" open="0" top="0" tabpos="0">
+		<Cursor position="11593" topLine="411" />
+	</File>
+	<File name="sound.c" open="0" top="0" tabpos="0">
+		<Cursor position="970" topLine="0" />
+	</File>
+	<File name="stream.c" open="0" top="0" tabpos="0">
+		<Cursor position="447" topLine="0" />
+	</File>
+	<File name="text.c" open="0" top="0" tabpos="2">
+		<Cursor position="6382" topLine="212" />
+	</File>
+	<File name="variable.c" open="0" top="0" tabpos="0">
+		<Cursor position="1499" topLine="27" />
+	</File>
+</CodeBlocks_layout_file>

@@ -1,0 +1,47 @@
+THREADS
+
+1. FROTZ - interpreting continuously
+2. GLUTTER - displaying continuously, call through to shape
+
+INPUT
+
+When frotz needs input it queries a static input object.
+When glutter detects input, it alters the static input object.
+
+CREATION
+
+When frotz draws some text, it does so through some print logic.
+The print logic records a script and calls the DisplayUmbrella's incoming text method.
+
+The DisplayUmbrella processes the incoming text, creating new objects.
+
+DisplayUmbrellas implement:
+	addText(char*)
+	addText(string*)
+	addChar(char)
+	display()
+	animate(time)
+
+DisplayShapes implement:
+	animate(time)
+	display()
+
+
+During initialisation, the Umbrella registers itself with the Print logic.
+
+DISPLAY
+
+The glutter displays animations by calling the DisplayUmbrella display method. (and any other backdroppy stuff that needs doing, etc. - perhaps a list of DisplayUmbrellas...)
+
+Book   : DisplayUmbrella
+Page   : DisplayUmbrella
+Line   : DisplayUmbrella
+Letter : DisplayShape
+
+Internal logics of Book include some additional objects:
+	Book is responsible for managing display state of Pages - 
+	ie. only display appropriate.
+	Pages generate, store and display Lines. Also handle rotation of page.
+	Lines store and display letters.
+
+Book also stores initial page size and parameters. Used to create the first page. Doubly linked list constructed from pages? Better...

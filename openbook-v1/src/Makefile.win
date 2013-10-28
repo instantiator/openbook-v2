@@ -1,0 +1,105 @@
+# Project: openbook
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = openbook_private.res
+OBJ  = vis-main.o dumb-init.o dumb-input.o dumb-output.o dumb-pic.o frot-object.o frotz-buffer.o frotz-fastmem.o frotz-files.o frotz-hotkey.o frotz-input.o frotz-main.o frotz-math.o frotz-process.o frotz-random.o frotz-redirect.o frotz-screen.o frotz-sound.o frotz-stream.o frotz-table.o frotz-text.o frotz-variable.o openbook.o vis-book.o vis-textures.o $(RES)
+LINKOBJ  = vis-main.o dumb-init.o dumb-input.o dumb-output.o dumb-pic.o frot-object.o frotz-buffer.o frotz-fastmem.o frotz-files.o frotz-hotkey.o frotz-input.o frotz-main.o frotz-math.o frotz-process.o frotz-random.o frotz-redirect.o frotz-screen.o frotz-sound.o frotz-stream.o frotz-table.o frotz-text.o frotz-variable.o openbook.o vis-book.o vis-textures.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -mwindows -lfreeglut -lglu32 -lopengl32 -lwinmm -lgdi32  -g3 
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = openbook.exe
+CXXFLAGS = $(CXXINCS) -DFREEGLUT_STATIC   -ansi -g3
+CFLAGS = $(INCS) -DFREEGLUT_STATIC   -ansi -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before openbook.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o "openbook.exe" $(LIBS)
+
+vis-main.o: vis-main.c
+	$(CC) -c vis-main.c -o vis-main.o $(CFLAGS)
+
+dumb-init.o: dumb-init.c
+	$(CC) -c dumb-init.c -o dumb-init.o $(CFLAGS)
+
+dumb-input.o: dumb-input.c
+	$(CC) -c dumb-input.c -o dumb-input.o $(CFLAGS)
+
+dumb-output.o: dumb-output.c
+	$(CC) -c dumb-output.c -o dumb-output.o $(CFLAGS)
+
+dumb-pic.o: dumb-pic.c
+	$(CC) -c dumb-pic.c -o dumb-pic.o $(CFLAGS)
+
+frot-object.o: frot-object.c
+	$(CC) -c frot-object.c -o frot-object.o $(CFLAGS)
+
+frotz-buffer.o: frotz-buffer.c
+	$(CC) -c frotz-buffer.c -o frotz-buffer.o $(CFLAGS)
+
+frotz-fastmem.o: frotz-fastmem.c
+	$(CC) -c frotz-fastmem.c -o frotz-fastmem.o $(CFLAGS)
+
+frotz-files.o: frotz-files.c
+	$(CC) -c frotz-files.c -o frotz-files.o $(CFLAGS)
+
+frotz-hotkey.o: frotz-hotkey.c
+	$(CC) -c frotz-hotkey.c -o frotz-hotkey.o $(CFLAGS)
+
+frotz-input.o: frotz-input.c
+	$(CC) -c frotz-input.c -o frotz-input.o $(CFLAGS)
+
+frotz-main.o: frotz-main.c
+	$(CC) -c frotz-main.c -o frotz-main.o $(CFLAGS)
+
+frotz-math.o: frotz-math.c
+	$(CC) -c frotz-math.c -o frotz-math.o $(CFLAGS)
+
+frotz-process.o: frotz-process.c
+	$(CC) -c frotz-process.c -o frotz-process.o $(CFLAGS)
+
+frotz-random.o: frotz-random.c
+	$(CC) -c frotz-random.c -o frotz-random.o $(CFLAGS)
+
+frotz-redirect.o: frotz-redirect.c
+	$(CC) -c frotz-redirect.c -o frotz-redirect.o $(CFLAGS)
+
+frotz-screen.o: frotz-screen.c
+	$(CC) -c frotz-screen.c -o frotz-screen.o $(CFLAGS)
+
+frotz-sound.o: frotz-sound.c
+	$(CC) -c frotz-sound.c -o frotz-sound.o $(CFLAGS)
+
+frotz-stream.o: frotz-stream.c
+	$(CC) -c frotz-stream.c -o frotz-stream.o $(CFLAGS)
+
+frotz-table.o: frotz-table.c
+	$(CC) -c frotz-table.c -o frotz-table.o $(CFLAGS)
+
+frotz-text.o: frotz-text.c
+	$(CC) -c frotz-text.c -o frotz-text.o $(CFLAGS)
+
+frotz-variable.o: frotz-variable.c
+	$(CC) -c frotz-variable.c -o frotz-variable.o $(CFLAGS)
+
+openbook.o: openbook.c
+	$(CC) -c openbook.c -o openbook.o $(CFLAGS)
+
+vis-book.o: vis-book.c
+	$(CC) -c vis-book.c -o vis-book.o $(CFLAGS)
+
+vis-textures.o: vis-textures.c
+	$(CC) -c vis-textures.c -o vis-textures.o $(CFLAGS)
+
+openbook_private.res: openbook_private.rc 
+	$(WINDRES) -i openbook_private.rc --input-format=rc -o openbook_private.res -O coff 

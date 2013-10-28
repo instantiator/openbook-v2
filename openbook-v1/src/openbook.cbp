@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="openbook" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="openbook.exe" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-g" />
+			<Add option="-DFREEGLUT_STATIC" />
+		</Compiler>
+		<Linker>
+			<Add library="freeglut" />
+			<Add library="glu32" />
+			<Add library="opengl32" />
+			<Add library="winmm" />
+			<Add library="gdi32" />
+		</Linker>
+		<Unit filename="dumb-frotz.h">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dumb-init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dumb-input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dumb-output.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dumb-pic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frot-object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-fastmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-files.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-hotkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-math.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-process.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-random.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-redirect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-screen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-sound.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-stream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-text.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz-variable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz.h">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="openbook.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vis-book.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vis-main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vis-textures.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vis-textures.h">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vis.h">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

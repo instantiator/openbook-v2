@@ -1,0 +1,25 @@
+Events from Frotz:		add word
+				add char
+
+
+OpenBookDisplay :: Book, GreenScreen, Narrator, etc.
+
+Implements the following methods:
+	AddWord
+	AddChar
+	SetStatus
+
+NB. by the time a create event arrives with the engine,
+the script has been DEALT WITH.
+
+pages are lists of objects
+objects are also referenced by animations in queues
+
+pages are in rotational states:
+	bool visible
+
+	0 = state[p]	: invisible
+	0 < state[p]	: visible
+	state[p-1] < 1	: visible
+
+	

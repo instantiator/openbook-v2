@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="frotz" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="default">
+				<Option output="libfrotz.a" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj\Debug\" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-pg" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-pg -lgmon" />
+				</Linker>
+			</Target>
+			<Target title="release">
+				<Option output="libfrotz.a" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj\Debug\" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-O3" />
+					<Add option="-Wall" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="exe">
+				<Option output="frotz.exe" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+			</Target>
+		</Build>
+		<ExtraCommands>
+			<Add after="xcopy /Y /D libfrotz.a ..\openbook2\libs" />
+			<Add after="xcopy /Y /D frotz.h ..\openbook2\include" />
+		</ExtraCommands>
+		<Unit filename="buffer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="err.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fastmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="files.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="frotz.h" />
+		<Unit filename="getopt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="getopt.h" />
+		<Unit filename="hotkey.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="math.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="process.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="quetzal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="random.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="redirect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="screen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sound.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stream.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="table.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="text.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="variable.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
