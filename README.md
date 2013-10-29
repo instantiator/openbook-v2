@@ -19,8 +19,6 @@ The ultimate aim was to extend the Inform interpreter with features such as:
 * Time based assignments (ie. your homework for tonight is now unlocked)
 * Awards (for completing tasks in the games, your rewards come with fun animations and go on your score board)
 
-There are plenty of Inform interpreters. I was interested in the UI and turning it into a fully working suite for schools.
+There are plenty of Inform interpreters. I was interested in the UI and turning it into a fully working suite for schools. I'm opening up the source in case anybody wants to do anything with it, or take the project forward! If you do, contact me and let me know!
 
-I'm opening up the source in case anybody wants to do anything with it, or take the project forward! If you do, contact me and let me know!
-
-I do not own copyrights on any of the libraries incorporated into this, or the textures I used (found on Google in 2005!).
+NB. I do not own copyrights on any of the libraries incorporated into this, or the textures I used (found on Google in 2005!). The same is true of the stories in the stories/ folder. I have included them there to help you find a subset of games that might actually work with it as it stands!
