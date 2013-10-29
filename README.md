@@ -3,6 +3,8 @@ openbook-v2
 
 I wrote this almost a decade ago. It is the world's first (and now, extremely deprecated!) 3D interactive fiction interpreter...
 
+Here's my recent [blog post](http://instantiatorgratification.blogspot.co.uk/2013/10/text-adventures-in-3d.html) on the topic.
+
 It's written in C++ and relies on GLUT to do the rendering.
 
 I'm using Frotz as the engine - as it's simple enough to bundle into the application with some minor adaptations.
