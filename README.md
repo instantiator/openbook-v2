@@ -1,9 +1,9 @@
 openbook-v2
 ===========
 
-I wrote this in ~2005. I'm not aware of any earlier 3D interactive fiction interpreters...
+I wrote this in ~2005. It's an interpreter for interactive fiction, with a 3D animated rendering engine in the form of a book. As you type and the game responds, letters float onto the page, and you can turn the pages forward and backward to see your whole game history.
 
-Here's a 2013 [blog post](http://instantiatorgratification.blogspot.co.uk/2013/10/text-adventures-in-3d.html) on the topic.
+I'm not aware of any earlier 3D interactive fiction interpreters.
 
 It's written in C++ and relies on GLUT to do the rendering.
 
@@ -22,4 +22,4 @@ The ultimate aim was to extend the Inform interpreter with features such as:
 * Time based assignments (ie. your homework for tonight is now unlocked)
 * Awards (for completing tasks in the games, your rewards come with fun animations and go on your score board)
 
-I was interested in building an attractive UI, and turning it into a fully working suite for schools. I'm opening up the source now, although I'd imagine there are better ways to solve the same problem now. There are plenty of Inform interpreters and far better 3D rendering engines to build on.
+I was interested in building an attractive UI, and turning it into a fully working suite for schools. I'm opening up the source, although I'd imagine there are better ways to solve the same problem now. There are plenty of Inform interpreters and far better 3D rendering engines to build on.
